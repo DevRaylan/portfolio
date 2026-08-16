@@ -1,4 +1,4 @@
-# Portfólio — Raylan Araujo
+# Meu Portfólio 
 
 Site pessoal, construído do zero com HTML, CSS e JavaScript puro (sem frameworks, sem build), hospedado via GitHub Pages.
 
