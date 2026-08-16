@@ -13,8 +13,11 @@ Site pessoal, construído do zero com HTML, CSS e JavaScript puro (sem framework
 
 ## Estrutura
 ├── index.html
+
 ├── css/ → estilos divididos por responsabilidade
+
 ├── js/ → lógica dividida em módulos (ES Modules)
+
 └── calculadora-gorjetas/ → um dos projetos exibidos no portfólio
 
 
