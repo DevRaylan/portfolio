@@ -34,22 +34,23 @@ Controller  →  Service  →  Repository  →  Banco (PostgreSQL)
 
 **Pré-requisitos:** JDK 21, Maven, Docker.
 
-1. Subir o banco de dados:
-   ```bash
-   docker compose up -d
-   ```
-2. Rodar a aplicação:
-   ```bash
-   mvn spring-boot:run
-   ```
-3. A API fica disponível em `http://localhost:8080`.
+Troque por:
 
-4. Servir o frontend (em outro terminal):
-   ```bash
-   cd frontend
-   python3 -m http.server 5500
+````markdown
+## Como rodar
 
+**Pré-requisitos:** JDK 21, Maven, Docker, Python 3.
+
+1. Na primeira vez, dê permissão de execução ao script:
+   ```bash
+   chmod +x start.sh
    ```
+2. Suba tudo (banco,backend e frontend):
+   ./start.sh
+
+3. A API fica disponível em http://localhost:8080 e o frontend em http://localhost:5500.
+
+4. Para parar backend e frontend, aperte Ctrl+C no terminal onde rodou o ./start.sh (o banco de dados continua rodando em segundo plano via Docker — pra derrubar ele também, use docker compose down).
 
 ## Endpoints da API
 
@@ -65,3 +66,4 @@ Controller  →  Service  →  Repository  →  Banco (PostgreSQL)
 - [x] Backend (Spring Boot + PostgreSQL + API REST)
 - [x] Interface web (HTML/CSS/JS)
 - [ ] Associação de gorjeta a número de mesa (futuro)
+````
