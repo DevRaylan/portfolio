@@ -5,7 +5,12 @@ import { abrirModal } from "./modal.js";
 // Projetos externos (código vive em outro repositório) usam { pasta, readmeUrl, repoUrl, linkBase }
 // para não precisar duplicar o código inteiro aqui dentro.
 const PROJETOS = [
-    "calculadora-gorjetas",
+    {
+        pasta: "calculadora-gorjetas",
+        readmeUrl: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/calculadora-gorjetas/README.md",
+        repoUrl: "https://github.com/DevRaylan/portfolio-projects/tree/main/calculadora-gorjetas",
+        linkBase: "https://github.com/DevRaylan/portfolio-projects/blob/main/calculadora-gorjetas"
+    },
     {
         pasta: "sigi",
         readmeUrl: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/sigi/README.md",
