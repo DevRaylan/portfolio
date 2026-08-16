@@ -2,6 +2,9 @@ package com.raylan.calculadoragorjetas.controller;
 
 import java.util.List;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.raylan.calculadoragorjetas.model.Atendente;
 import com.raylan.calculadoragorjetas.service.AtendenteService;
 
-
 @RestController
 @RequestMapping("/atendentes")
 public class AtendenteController {
@@ -20,8 +22,9 @@ public class AtendenteController {
     public AtendenteController(AtendenteService atendenteService) {
         this.atendenteService = atendenteService;
     }
+
     @PostMapping
-    public Atendente cadastrar(@RequestBody NovoAtendenteRequest request) {
+    public Atendente cadastrar(@Valid @RequestBody NovoAtendenteRequest request) {
         return atendenteService.cadastrar(request.nome());
     }
 
@@ -29,7 +32,8 @@ public class AtendenteController {
     public List<Atendente> listar() {
         return atendenteService.listarTodos();
     }
-    public record NovoAtendenteRequest(String nome) {}
 
-    
+    public record NovoAtendenteRequest(
+            @NotBlank(message = "Nome é obrigatório") String nome) {
+    }
 }

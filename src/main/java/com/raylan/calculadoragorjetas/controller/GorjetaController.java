@@ -13,6 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.raylan.calculadoragorjetas.model.Gorjeta;
 import com.raylan.calculadoragorjetas.service.GorjetaService;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.DecimalMax;
+import jakarta.validation.constraints.DecimalMin;
+
 @RestController
 @RequestMapping("/gorjetas")
 public class GorjetaController {
@@ -23,7 +30,7 @@ public class GorjetaController {
     }
 
     @PostMapping
-    public Gorjeta calcular(@RequestBody CalcularGorjetaRequest request) {
+    public Gorjeta calcular(@Valid @RequestBody CalcularGorjetaRequest request) {
         return gorjetaService.calcular(request.atendenteId(), request.valorConta(), request.percentual());
     }
 
@@ -32,6 +39,12 @@ public class GorjetaController {
         return gorjetaService.historicoPorAtendente(atendenteId);
     }
 
-    public record CalcularGorjetaRequest(Long atendenteId, BigDecimal valorConta, BigDecimal percentual) {}
-    
+    public record CalcularGorjetaRequest(
+            @NotNull(message = "Atendente é obrigatório") Long atendenteId,
+
+            @NotNull(message = "Valor da conta é obrigatório") @DecimalMin(value = "0.0", inclusive = false, message = "Valor da conta deve ser maior que zero") BigDecimal valorConta,
+
+            @NotNull(message = "Percentual é obrigatório") @DecimalMin(value = "0.0", inclusive = false, message = "Percentual deve ser maior que zero") @DecimalMax(value = "100.0", message = "Percentual não pode ser maior que 100") BigDecimal percentual) {
+    }
+
 }
