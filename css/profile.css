@@ -1,0 +1,48 @@
+.avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.sidebar h1 {
+  margin: 0 0 8px;
+  font-size: 1.75rem;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 1rem;
+  margin: 0 0 24px;
+}
+
+.links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 48px;
+}
+
+.link-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-alt);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+
+.link-pill:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
