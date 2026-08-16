@@ -9,13 +9,13 @@ const PROJETOS = [
         pasta: "calculadora-gorjetas",
         readmeUrl: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/calculadora-gorjetas/README.md",
         repoUrl: "https://github.com/DevRaylan/portfolio-projects/tree/main/calculadora-gorjetas",
-        linkBase: "https://github.com/DevRaylan/portfolio-projects/blob/main/calculadora-gorjetas"
+        linkBase: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/calculadora-gorjetas"
     },
     {
         pasta: "sigi",
         readmeUrl: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/sigi/README.md",
         repoUrl: "https://github.com/DevRaylan/portfolio-projects/tree/main/sigi",
-        linkBase: "https://github.com/DevRaylan/portfolio-projects/blob/main/sigi"
+        linkBase: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/sigi"
     }
 ];
 const projectsList = document.getElementById("projects-list");
