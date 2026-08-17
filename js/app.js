@@ -28,7 +28,21 @@ async function carregarProjetos() {
         const urlRepositorio = ehLocal ? `https://github.com/DevRaylan/portfolio/tree/main/${pasta}` : projeto.repoUrl;
         const linkBase = ehLocal ? pasta : projeto.linkBase;
 
-        const resposta = await fetch(readmeUrl);
+                const resposta = await fetch(readmeUrl);
+        if (!resposta.ok) {
+            console.warn(`Não foi possível carregar o README de ${pasta} (status ${resposta.status})`);
+            const cardErro = document.createElement("article");
+            cardErro.className = "project-card fade-in-up";
+            cardErro.style.animationDelay = `${index * 0.1}s`;
+            cardErro.innerHTML = `
+                <div class="project-card-top">
+                    <h3>${pasta}</h3>
+                    <p>O GitHub está passando por instabilidade no momento e não foi possível carregar este projeto. <a href="https://github.com/DevRaylan/portfolio-projects" target="_blank" rel="noopener">Acesse o repositório diretamente</a>.</p>
+                </div>
+            `;
+            projectsList.appendChild(cardErro);
+            continue;
+        }
         const readme = await resposta.text();
 
         const titulo = extrairTitulo(readme);
