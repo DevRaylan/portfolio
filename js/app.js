@@ -16,7 +16,14 @@ const PROJETOS = [
         readmeUrl: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/sigi/README.md",
         repoUrl: "https://github.com/DevRaylan/portfolio-projects/tree/main/sigi",
         linkBase: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/sigi"
+    },
+    {
+        pasta: "constru-leadflow",
+        readmeUrl: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/constru-leadflow/README.md",
+        repoUrl: "https://github.com/DevRaylan/portfolio-projects/tree/main/constru-leadflow",
+        linkBase: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/constru-leadflow"
     }
+
 ];
 const projectsList = document.getElementById("projects-list");
 
