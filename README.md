@@ -2,7 +2,7 @@
 
 Site pessoal, construído do zero com HTML, CSS e JavaScript puro (sem frameworks, sem build), hospedado via GitHub Pages.
 
-🔗 **[Ver site publicado](https://devraylan.github.io/portfolio/)**
+🔗 **[Ver site publicado](https://devraylan.github.io/vitrine-projetos/)**
 
 ## Como funciona
 
