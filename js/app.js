@@ -7,18 +7,21 @@ import { abrirModal } from "./modal.js";
 const PROJETOS = [
     {
         pasta: "calculadora-gorjetas",
+        imagem: "img/calculadora-gorjetas.png",
         readmeUrl: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/calculadora-gorjetas/README.md",
         repoUrl: "https://github.com/DevRaylan/portfolio-projects/tree/main/calculadora-gorjetas",
         linkBase: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/calculadora-gorjetas"
     },
     {
         pasta: "sigi",
+        imagem: "img/sigi.png",
         readmeUrl: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/sigi/README.md",
         repoUrl: "https://github.com/DevRaylan/portfolio-projects/tree/main/sigi",
         linkBase: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/sigi"
     },
     {
         pasta: "constru-leadflow",
+        imagem: "img/constru-leadflow.png",
         readmeUrl: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/constru-leadflow/README.md",
         repoUrl: "https://github.com/DevRaylan/portfolio-projects/tree/main/constru-leadflow",
         linkBase: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/constru-leadflow"
@@ -35,7 +38,7 @@ async function carregarProjetos() {
         const urlRepositorio = ehLocal ? `https://github.com/DevRaylan/portfolio/tree/main/${pasta}` : projeto.repoUrl;
         const linkBase = ehLocal ? pasta : projeto.linkBase;
 
-                const resposta = await fetch(readmeUrl);
+        const resposta = await fetch(readmeUrl);
         if (!resposta.ok) {
             console.warn(`Não foi possível carregar o README de ${pasta} (status ${resposta.status})`);
             const cardErro = document.createElement("article");
@@ -55,11 +58,15 @@ async function carregarProjetos() {
         const titulo = extrairTitulo(readme);
         const descricao = extrairDescricao(readme);
         const tecnologias = extrairTecnologias(readme);
+        const imagemHtml = projeto.imagem
+        ? `<img src="${projeto.imagem}" alt="Captura de tela do projeto ${titulo}" class="project-card-img" loading="lazy">`
+        : "";
 
         const card = document.createElement("article");
         card.className = "project-card fade-in-up";
         card.style.animationDelay = `${index * 0.1}s`;
         card.innerHTML = `
+            ${imagemHtml}
             <div class="project-card-top" tabindex="0">
                 <h3>${titulo}</h3>
                 <p>${marked.parseInline(descricao)}</p>
@@ -100,5 +107,15 @@ async function carregarProjetos() {
         projectsList.appendChild(card);
     }
 }
+
+const conteudo = document.querySelector(".content");
+let scrollTimeout;
+conteudo.addEventListener("scroll", () => {
+    conteudo.classList.add("is-scrolling");
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+        conteudo.classList.remove("is-scrolling");
+    }, 800);
+});
 
 carregarProjetos();

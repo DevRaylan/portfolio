@@ -1,9 +1,10 @@
 #projects {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 #projects h2 {
+  margin: 0;
   font-size: 2.00rem;
   text-align: center;
   margin-bottom: 20px;
@@ -11,13 +12,29 @@
   border-bottom: 1px solid var(--border);
 }
 
+#projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 24px;
+}
+
 .project-card {
   background: var(--card-bg);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 28px;
-  margin-bottom: 24px;
   transition: border-color 0.15s ease, transform 0.15s ease;
+  overflow: hidden;
+}
+
+.project-card-img {
+  display: block;
+  width: calc(100% + 56px);
+  height: auto;
+  margin: -28px -28px 20px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  border-bottom: 1px solid var(--border);
 }
 
 .project-card-top,
