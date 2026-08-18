@@ -25,6 +25,13 @@ const PROJETOS = [
         readmeUrl: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/constru-leadflow/README.md",
         repoUrl: "https://github.com/DevRaylan/portfolio-projects/tree/main/constru-leadflow",
         linkBase: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/constru-leadflow"
+    },
+    {
+        pasta: "locacao",
+        imagem: "img/locacao.png",
+        readmeUrl: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/locacao/README.md",
+        repoUrl: "https://github.com/DevRaylan/portfolio-projects/tree/main/locacao",
+        linkBase: "https://raw.githubusercontent.com/DevRaylan/portfolio-projects/main/locacao"
     }
 
 ];
