@@ -117,6 +117,14 @@
 .modal-content a {
   color: var(--accent);
 }
+
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+}
 #modal-content {
   transition: opacity 0.2s ease, transform 0.2s ease;
 }
